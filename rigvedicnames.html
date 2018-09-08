@@ -1,0 +1,41 @@
+<!DOCTYPE HTML>
+<!--
+    Created by Sarthak Ganguly with Love.
+    License: Released under GNU v2 License. For details please check it in any
+    search engine of your choice.
+    APIs used: APIs used in this project are the hard work of Anindita Basu of the
+    Vedic Society. The repo is here - https://aninditabasu.github.io/rigVeda/index.html
+!-->
+<html>
+<head>
+<title>Rig Vedic Names</title>
+
+</head>
+<body>
+<script>
+function getResponse() {
+var link = "https://sheetlabs.com/RV/vs";
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+         if (this.readyState == 4 && this.status == 200) {
+             var parsedResponse = JSON.parse(this.response);
+             document.getElementById("name").innerHTML = parsedResponse[0].word
+         }
+    };
+    
+    xhttp.open("GET", link, true);
+    xhttp.setRequestHeader("Content-type", "application/json");
+    xhttp.send();
+    
+    
+    
+};
+
+</script>
+    <!--
+    insert the variables boxes for the parameters and we are good to go.
+    !-->
+    <button type="submit" onclick="getResponse()">Search</button>
+    <div id="text"></div>
+</body>
+</html>
